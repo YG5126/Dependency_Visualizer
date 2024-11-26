@@ -108,7 +108,7 @@ def visualize_dependencies(plantuml_path, package_path, repository_url):
         print(f"Произошла ошибка: {str(e)}")
         sys.exit(1)
     finally:
-        # Удаляем временный .puml файл
+        # Удаляем временный .puml файл0
         if os.path.exists(temp_puml):
             os.remove(temp_puml)
 
