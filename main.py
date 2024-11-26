@@ -47,6 +47,7 @@ def get_dependencies(package_path, repository_url, dependencies=None, visited=No
 
                     except Exception as e:
                         print(f"Ошибка при получении зависимостей для {dep_name}: {str(e)}")
+                        dependencies[package_id].remove(dep_id)
                     
                     finally:
                         import shutil
@@ -78,16 +79,13 @@ def visualize_dependencies(plantuml_path, package_path, repository_url):
     dependencies = get_dependencies(package_path, repository_url)
     plantuml_code = generate_plantuml_graph(dependencies)
 
-    # Имена файлов
     temp_puml = "dependency_graph.puml"
     output_png = "dependency_graph.png"
     
-    # Записываем PlantUML код
     with open(temp_puml, "w") as f:
         f.write(plantuml_code)
 
     try:
-        # Генерируем изображение
         result = subprocess.run(['java', '-jar', plantuml_path, temp_puml], 
                               capture_output=True, 
                               text=True)
@@ -96,7 +94,6 @@ def visualize_dependencies(plantuml_path, package_path, repository_url):
             print(f"Ошибка при генерации графа: {result.stderr}")
             sys.exit(1)
 
-        # Проверяем, что файл создан
         if not os.path.exists(output_png):
             print("Ошибка: файл графа не был создан")
             sys.exit(1)
@@ -108,7 +105,6 @@ def visualize_dependencies(plantuml_path, package_path, repository_url):
         print(f"Произошла ошибка: {str(e)}")
         sys.exit(1)
     finally:
-        # Удаляем временный .puml файл0
         if os.path.exists(temp_puml):
             os.remove(temp_puml)
 
