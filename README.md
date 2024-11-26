@@ -31,7 +31,7 @@
 ```
 git clone https://github.com/YG5126/Dependency_Visualizer
 ```
-4. Прейдите в директорию репозитория
+4. Прейти в директорию репозитория
 ```
 cd Dependency_Visualizer
 ```
