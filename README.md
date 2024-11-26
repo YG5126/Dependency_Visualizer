@@ -52,4 +52,6 @@ py main.py plantuml-1.2024.8.jar package.json https://registry.npmjs.org
  - Java
  - Доступ к интернету
  - Установленная библиотека PlantUML
-#Общие тесты
+# Общие тесты
+
+![](https://github.com/YG5126/Dependency_Visualizer/blob/main/Test/Common%20tests.png)
