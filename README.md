@@ -39,6 +39,10 @@ cd Dependency_Visualizer
 ```
 py main.py plantuml-1.2024.8.jar package.json https://registry.npmjs.org
 ```
+# Результат рыботы программы
+
+![](https://github.com/YG5126/Dependency_Visualizer/blob/main/Test/dependency_graph.png)
+
 # Особенности реализации
 
  - Самостоятельная загрузка зависимостей
